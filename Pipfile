@@ -16,6 +16,7 @@ django = "*"
 "psycopg2-binary" = "*"
 django-heroku = "*"
 gunicorn = "*"
+pytest-cov = "==2.5.0"
 
 [dev-packages]
 pylint = "*"
