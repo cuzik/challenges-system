@@ -16,10 +16,11 @@ django = "*"
 "psycopg2-binary" = "*"
 django-heroku = "*"
 gunicorn = "*"
-pylint = "*"
-pytest = "*"
 
 [dev-packages]
+pylint = "*"
+pytest = "*"
+python-coveralls = "*"
 
 [requires]
 python_version = "3.6"

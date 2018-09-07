@@ -1,0 +1,26 @@
+language:
+  - python
+
+dist:
+  - trusty
+
+python:
+  - "3.6.5"
+
+before_install:
+  - |
+      if [[ -n "$PYENV_VERSION" ]]; then
+        wget https://github.com/praekeltfoundation/travis-pyenv/releases/download/0.4.0/setup-pyenv.sh
+        source setup-pyenv.sh
+      fi
+
+install: "make"
+
+before_script:
+  - py.test tests/ --cov=azazel
+
+script:
+  - make test
+
+after_success:
+  - coveralls
