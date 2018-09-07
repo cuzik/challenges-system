@@ -17,7 +17,7 @@ before_install:
 install: "make"
 
 before_script:
-  - py.test tests/ --cov=azazel
+  - py.test tests/ --cov=durmstrang
 
 script:
   - make test
