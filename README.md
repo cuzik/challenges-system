@@ -1,5 +1,5 @@
 # Challenger System
-This is a system that users are punctuated by someone from proposed challenges.
+This is a system that users propose challenges for themselves.
 
 <center>
 
