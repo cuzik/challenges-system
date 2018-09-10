@@ -9,7 +9,9 @@ from django.template import loader
 
 @login_required(login_url='sign_in')
 def index(request):
-    return HttpResponse("index")
+    template = loader.get_template('index.html')
+    context = {}
+    return HttpResponse(template.render(context, request))
 
 
 @require_POST
@@ -19,7 +21,9 @@ def user_registration(request):
         user_by_username = User.objects.get(email=request.POST['email'])
 
         if user_by_email or user_by_username:
-            return render(request, '/', {'msg': 'Erro! Já existe um usuário com o mesmo e-mail'})
+            if request.GET['next']:
+                return HttpResponseRedirect(request.GET['next'])
+            return HttpResponseRedirect('/')
 
     except User.DoesNotExist:
         username = request.POST['username']
@@ -29,6 +33,10 @@ def user_registration(request):
         new_user = User.objects.create_user(
             username=username, email=email, password=password)
         new_user.save()
+        login(request, new_user)
+        if request.GET['next']:
+            return HttpResponseRedirect(request.GET['next'])
+        return HttpResponseRedirect('/')
 
 
 @require_POST
@@ -50,15 +58,17 @@ def logout_app(request):
 
 def sign_in(request):
     template = loader.get_template('login.html')
-    context = {
-        'oi': 'oi',
-    }
+    context = {}
     return HttpResponse(template.render(context, request))
 
 
 def sign_up(request):
     template = loader.get_template('sign_up.html')
-    context = {
-        'oi': 'oie',
-    }
+    context = {}
+    return HttpResponse(template.render(context, request))
+
+
+def challenges(request):
+    template = loader.get_template('challenges.html')
+    context = {}
     return HttpResponse(template.render(context, request))
