@@ -14,8 +14,6 @@ def user_registration(request):
         user_by_username = User.objects.get(email=request.POST["email"])
 
         if user_by_email or user_by_username:
-            if request.GET["next"]:
-                return HttpResponseRedirect(request.GET["next"])
             return HttpResponseRedirect("/")
 
     except User.DoesNotExist:
@@ -28,8 +26,6 @@ def user_registration(request):
         )
         new_user.save()
         login(request, new_user)
-        if request.GET["next"]:
-            return HttpResponseRedirect(request.GET["next"])
         return HttpResponseRedirect("/")
 
 
