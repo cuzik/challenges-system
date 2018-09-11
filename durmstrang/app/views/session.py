@@ -11,7 +11,7 @@ from django.template import loader
 def user_registration(request):
     try:
         user_by_email = User.objects.get(email=request.POST["email"])
-        user_by_username = User.objects.get(email=request.POST["username"])
+        user_by_username = User.objects.get(username=request.POST["username"])
 
         if user_by_email or user_by_username:
             return HttpResponseRedirect("/")
