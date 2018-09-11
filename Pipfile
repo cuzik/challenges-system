@@ -17,6 +17,9 @@ django = "*"
 django-heroku = "*"
 gunicorn = "*"
 pytest-cov = "==2.5.0"
+"pep8" = "*"
+pillow = "*"
+django-widget-tweaks = "*"
 
 [dev-packages]
 pylint = "*"

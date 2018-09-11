@@ -2,3 +2,4 @@
 .coverage
 .vscode/
 __pycache__
+/media/*

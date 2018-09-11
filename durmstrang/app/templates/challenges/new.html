@@ -39,8 +39,14 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-12">
-        View your Challenges.
+      <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-3">
+        <form action="new" method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+
+          {% include 'challenges/_form.html' with form=form %}
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
       </div>
     </div>
   </div>
