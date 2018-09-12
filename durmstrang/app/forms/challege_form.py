@@ -13,6 +13,6 @@ class ChallengeForm(ModelForm):
             "avatar",
             "reached_points",
             "expected_points",
-            "reached_starts",
-            "expected_starts",
+            "reached_achievements",
+            "expected_achievements",
         ]
