@@ -27,10 +27,10 @@
             <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="challenges">Your Challenges</a>
+            <a class="nav-link" href="/challenges">Your Challenges</a>
           </li>
           <li class="nav-item active">
-            <a class="nav-link" href="logout_app">logout</a>
+            <a class="nav-link" href="/logout_app">logout</a>
           </li>
         </ul>
       </div>
@@ -40,13 +40,7 @@
   <div class="container">
     <div class="row">
       <div class="col-sm-12 offset-sm-0 col-md-6 offset-md-3">
-        <form action="new" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
-
-          {% include 'challenges/_form.html' with form=form %}
-
-          <button type="submit" class="btn btn-primary">Submit</button>
-        </form>
+        {% include 'challenges/_form.html' with form=form %}
       </div>
     </div>
   </div>
