@@ -9,7 +9,8 @@ from durmstrang.app.forms import ChallengeForm
 
 @login_required(login_url="sign_in")
 def index(request):
-    challenges = Challenge.objects.filter(user_id=request.user.id).order_by("pk")
+    challenges = Challenge.objects.filter(
+        user_id=request.user.id).order_by("pk")
     template = loader.get_template("challenges/index.html")
     context = {"challenges": challenges}
     return HttpResponse(template.render(context, request))
@@ -34,7 +35,7 @@ def new(request):
     return HttpResponse(template.render(context, request))
 
 
-def update(request):
+def edit(request):
     pass
 
 
