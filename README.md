@@ -67,3 +67,14 @@ pipenv run migrate
 ```sh
 pipenv run server
 ```
+
+
+## Todo
+
+- Add validators on `ChallangeForm()`.
+- Add messages to sessions.
+- Change messages from alarts to flashs.
+- Add tests.
+- Add I18n.
+- Add thumb of image on challenge/edit.
+- Better buttons to number of `point` and `achievements`.
