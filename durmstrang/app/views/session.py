@@ -48,12 +48,12 @@ def logout_app(request):
 
 
 def sign_in(request):
-    template = loader.get_template("login.html")
+    template = loader.get_template("sessions/login.html")
     context = {}
     return HttpResponse(template.render(context, request))
 
 
 def sign_up(request):
-    template = loader.get_template("sign_up.html")
+    template = loader.get_template("sessions/sign_up.html")
     context = {}
     return HttpResponse(template.render(context, request))

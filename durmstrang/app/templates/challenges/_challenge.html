@@ -1,0 +1,45 @@
+{% load static %}
+
+<a href="/challenges/edit/{{ challenge.id }}/">
+  <div class="card-challenge row align-items-center">
+    <div class="col-10">
+      <div class="row align-items-end">
+        <div class="col-3" style="display: block;">
+          <img class="img-fluid avatar" src="{{ challenge.avatar.url }}" alt="avatar" width="80%">
+        </div>
+        <div class="col-9 content-comment">
+          <p class="title">{{ challenge.title }}<br /></p>
+          <p class="description">{{ challenge.description }}</p>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12">
+          <div class="d-block w-100">
+            <div class="progress">
+              <div class="progress-bar" role="progressbar" style="width: {{ challenge.progress }}%" aria-valuenow="{{ challenge.progress }}"
+                aria-valuemin="0" aria-valuemax="100"></div>
+              <div class="progress-bar" role="progressbar" style="width: 100%; background: #ccc;" aria-valuenow="100"
+                aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+          <p class="achievements_amount">{{ challenge.reached_achievements }}/{{ challenge.expected_achievements }}
+            <span class="achievements_label">Conquistas</span></p>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-2">
+      <div class="row justify-content-center">
+        <div class="col-10">
+          <img class="img-fluid star" src="{% static 'images/star.jpeg' %}" alt="star">
+        </div>
+      </div>
+      <div class="row justify-content-center">
+        <div class="col-10 text-star">
+          <p class="text-center points_amount">{{ challenge.reached_points }}/{{ challenge.expected_points }}</p>
+          <p class="text-center points_label">Pontos</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</a>

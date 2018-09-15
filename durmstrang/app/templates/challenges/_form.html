@@ -1,55 +1,46 @@
 {% load widget_tweaks %}
 {% load static %}
 
-<form action="new" method="post" enctype="multipart/form-data">
-  {% csrf_token %}
+{% csrf_token %}
 
-  {% for hidden_field in form.hidden_fields %}
-    {{ hidden_field }}
-  {% endfor %}
+{% for hidden_field in form.hidden_fields %}
+{{ hidden_field }}
+{% endfor %}
 
-  {% if form.non_field_errors %}
-    <div class="alert alert-danger" role="alert">
-      {% for error in form.non_field_errors %}
-        {{ error }}
-      {% endfor %}
+<div class="container">
+  <div class="row">
+    <div class="col-4">
+      {% include 'challenges/_form_field.html' with field=form.title %}
     </div>
-  {% endif %}
-
-  <div class="container">
-    <div class="row">
-      <div class="col-4">
-        {% include 'challenges/_form_field.html' with field=form.title %}
-      </div>
-      <div class="col-8">
-        {% include 'challenges/_form_field.html' with field=form.description %}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-12">
-        {% include 'challenges/_form_field.html' with field=form.avatar %}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-6">
-        {% include 'challenges/_form_field.html' with field=form.expected_points %}
-      </div>
-      <div class="col-6">
-        {% include 'challenges/_form_field.html' with field=form.reached_points %}
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col-6">
-        {% include 'challenges/_form_field.html' with field=form.expected_achievements %}
-      </div>
-      <div class="col-6">
-        {% include 'challenges/_form_field.html' with field=form.reached_achievements %}
-      </div>
+    <div class="col-8">
+      {% include 'challenges/_form_field.html' with field=form.description %}
     </div>
   </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <div class="row">
+    <div class="col-12">
+      {% include 'challenges/_form_field.html' with field=form.avatar %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {% include 'challenges/_form_field.html' with field=form.expected_points %}
+    </div>
+    <div class="col-6">
+      {% include 'challenges/_form_field.html' with field=form.reached_points %}
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-6">
+      {% include 'challenges/_form_field.html' with field=form.expected_achievements %}
+    </div>
+    <div class="col-6">
+      {% include 'challenges/_form_field.html' with field=form.reached_achievements %}
+    </div>
+  </div>
+</div>
+
+<button type="submit" class="btn btn-primary">Submit</button>
+<a href="/" class="btn btn-danger">Cancel</a>
