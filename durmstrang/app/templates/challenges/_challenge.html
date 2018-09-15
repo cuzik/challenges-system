@@ -4,7 +4,7 @@
   <div class="card-challenge row align-items-center">
     <div class="col-10">
       <div class="row align-items-end">
-        <div class="col-3" style="display: block;">
+        <div class="col-3">
           <img class="img-fluid avatar" src="{{ challenge.avatar.url }}" alt="avatar" width="80%">
         </div>
         <div class="col-9 content-comment">
@@ -17,8 +17,6 @@
           <div class="d-block w-100">
             <div class="progress">
               <div class="progress-bar" role="progressbar" style="width: {{ challenge.progress }}%" aria-valuenow="{{ challenge.progress }}"
-                aria-valuemin="0" aria-valuemax="100"></div>
-              <div class="progress-bar" role="progressbar" style="width: 100%; background: #ccc;" aria-valuenow="100"
                 aria-valuemin="0" aria-valuemax="100"></div>
             </div>
           </div>
