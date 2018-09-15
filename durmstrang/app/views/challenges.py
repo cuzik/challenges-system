@@ -35,7 +35,7 @@ def new(request):
     else:
         form = ChallengeForm()
     context = {"form": form}
-    template = loader.get_template("/challenges/new.html")
+    template = loader.get_template("challenges/new.html")
     return HttpResponse(template.render(context, request))
 
 
@@ -61,7 +61,7 @@ def edit(request, id):
         else:
             form = ChallengeForm(instance=challenge_edit)
         context = {"form": form, "id": id}
-        template = loader.get_template("/challenges/edit.html")
+        template = loader.get_template("challenges/edit.html")
         return HttpResponse(template.render(context, request))
     except Challenge.DoesNotExist:
         messages.add_message(
